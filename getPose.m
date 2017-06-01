@@ -1,4 +1,4 @@
-function [alpha,beta,gamma] = getPose(X,Y)
+function [H,alpha,beta,gamma] = getPose(X,Y)
 %poseDetect - Description
 %
 % Syntax: [alpha,beta,gamma] = getPose(X,Y)
@@ -13,6 +13,6 @@ function [alpha,beta,gamma] = getPose(X,Y)
     H = Y*inv(X);
     alpha = atan(-H(3,1)/H(3,3));
     beta = atan(-H(3,2)/H(3,3));
-    H = inv(H)';
-    gamma = atan(-H(2,1)/H(1,1));
+    HH = inv(H)';
+    gamma = atan(-HH(2,1)/HH(1,1));
 end
